@@ -1,6 +1,8 @@
 # pyCFB
 Python package for calculating the Coffrey-Feingold-Bromberg measure for variability among weighted proportions
 
+Brief documentation is [online](https://krosenfeld.github.io/pyCFB/).
+
 ## Install
 - Install:
 `   python setup.py install`
