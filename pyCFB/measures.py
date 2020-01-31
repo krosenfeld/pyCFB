@@ -18,6 +18,9 @@ def coffrey(p, w=None):
     if w is None:
         # no weights
         w = [1/s for ix in range(s)]
+        equal_weights = True
+    else:
+        equal_weights = False
 
     assert np.isclose(sum(w), 1)
 
@@ -28,12 +31,13 @@ def coffrey(p, w=None):
     h = sum([wi * (pi - pbar) ** 2 for (pi, wi) in zip(p, w)])
 
     # xmax
-    if np.unique(w).size == 1:
+    if equal_weights:
         # equal weight case
         n = np.floor(s * pbar)
         r = s * pbar - n
         hmax = pbar * (1 - pbar) - r * (1 - r) / s
     else:
+
         # unequal weight case
         hmax = 0
         # permutations of s-1 elements of [0,1]
