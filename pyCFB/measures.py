@@ -17,12 +17,13 @@ def coffrey(p, w=None):
     # check weights
     if w is None:
         # no weights
-        w = [1/s for ix in range(s)]
+        w = 1/s * np.ones(s)
         equal_weights = True
     else:
         equal_weights = False
 
     assert np.isclose(sum(w), 1)
+    assert np.all(p <= 1) & np.all(p >= 0)
 
     # mean
     pbar = sum([pi * wi for (pi, wi) in zip(p, w)])
