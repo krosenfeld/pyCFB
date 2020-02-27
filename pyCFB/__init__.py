@@ -1,1 +1,1 @@
-from pyCFB.measures import coffrey
+from .measures import coffrey
